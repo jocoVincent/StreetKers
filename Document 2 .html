@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>StreetKers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --fond-clair: #fcf4e8;
+      --menu-rouge: #c05447;
+      --bleu: #1d2c4f;
+      --bleu-clair: #6fc4e8;
+      --blanc: #ffffff;
+      --gris-fonce: #1a1a1a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--fond-clair);
+      color: var(--gris-fonce);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: var(--menu-rouge);
+      color: var(--blanc);
+      padding: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1em;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--blanc);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--bleu-clair);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--blanc);
+      margin: 4px;
+      transition: 0.3s;
+    }
+
+    .nav-links {
+      display: flex;
+    }
+
+    .nav-active {
+      display: block !important;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 4em 1em;
+      background: var(--bleu-clair);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .hero img {
+      max-width: 200px;
+      border-radius: 12px;
+      margin: 1em;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      margin: 1em;
+      font-size: 1.2em;
+      animation: slideIn 1s ease-out;
+    }
+
+    .section {
+      padding: 4em 1em;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: var(--menu-rouge);
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2em;
+      margin-top: 2em;
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 1em;
+      width: 280px;
+      background: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      z-index: 2;
+    }
+
+    .cta {
+      margin-top: 2em;
+    }
+
+    .cta button {
+      padding: 0.8em 1.5em;
+      font-size: 1em;
+      background-color: var(--menu-rouge);
+      color: var(--blanc);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta button:hover {
+      background-color: var(--bleu-clair);
+    }
+
+    footer {
+      background: var(--menu-rouge);
+      color: var(--blanc);
+      padding: 2em 1em;
+    }
+
+    footer a {
+      color: var(--blanc);
+      text-decoration: underline;
+    }
+
+    .mentions {
+      font-size: 0.85em;
+      margin-top: 2em;
+      text-align: left;
+      max-width: 900px;
+      margin-inline: auto;
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+
+    @keyframes slideIn {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--menu-rouge);
+        position: absolute;
+        right: 1em;
+        top: 4em;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 1em;
+        border-radius: 8px;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://via.placeholder.com/100x50?text=Logo" alt="Logo StreetKers" class="logo">
+  <nav>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#accueil">Accueil</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#portfolio-complet">Galerie</a>
+      <a href="#a-propos">À propos</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <img src="https://via.placeholder.com/200x200?text=CEO" alt="CEO">
+  <div class="hero-text">
+    <h2>Fanatik de StreetK</h2>
+    <p>Bienvenue dans l’univers StreetKers – authenticité, culture street & esprit mécanique réunis.</p>
+  </div>
+</section>
+
+<section class="section" id="portfolio-complet">
+  <h2>Galerie complète</h2>
+  <div class="grid">
+    <div class="card"><h3>Sticker Corsa</h3><p>2023 – Série limitée Street design</p></div>
+    <div class="card"><h3>Textile custom</h3><p>2024 – Hoodie & print</p></div>
+    <div class="card"><h3>Illustration moto</h3><p>2022 – Linework 1:1</p></div>
+    <div class="card"><h3>Skateboard art</h3><p>2025 – Board personnalisée</p></div>
+    <div class="card"><h3>Mini stickers</h3><p>2023 – Séries pour événements</p></div>
+    <div class="card"><h3>Prints sur toile</h3><p>2022 – Sérigraphie artisanale</p></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Projet à imprimer, prototype ou petite série ?</p>
+  <form action="mailto:contact@streetkers.com" method="post" enctype="text/plain" style="max-width: 500px; margin: auto;">
+    <input type="text" name="Nom" placeholder="Votre nom" required style="width: 100%; padding: 1em; margin: 0.5em 0;">
+    <input type="email" name="Email" placeholder="Votre email" required style="width: 100%; padding: 1em; margin: 0.5em 0;">
+    <textarea name="Message" placeholder="Votre message" rows="5" required style="width: 100%; padding: 1em; margin: 0.5em 0;"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+  <p>📩 <a href="mailto:contact@streetkers.com">contact@streetkers.com</a></p>
+  <p>📍 78540 VERNOUILLET</p>
+</section>
+
+<footer>
+  <h3>Mentions légales</h3>
+  <div class="mentions">
+    <p><strong>Éditeur :</strong> StreetKers – EI Ronceray Vincent – SIRET 942714684 00019</p>
+    <p><strong>Hébergement :</strong> OVH</p>
+    <p><strong>Données personnelles :</strong> Aucune collecte à votre insu. Pas de cession à des tiers. Droit d'accès, de rectification, de portabilité ou suppression par mail à : <a href="mailto:contact@streetkers.com">contact@streetkers.com</a></p>
+    <p><strong>Cookies :</strong> Utilisation limitée à la mesure d’audience (Google Analytics). Durées : de 10 minutes à 13 mois.</p>
+    <p><strong>Copyright :</strong> Tous les contenus (textes, photos, logos) sont protégés.</p>
+    <p><strong>Limitation de responsabilité :</strong> Informations fournies "en l’état". Pas de garantie quant à leur exactitude ou disponibilité permanente.</p>
+    <p><strong>Crédits photos :</strong> StreetKers – EI Ronceray Vincent</p>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("nav-active");
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, {
+    threshold: 0.3
+  });
+
+  document.querySelectorAll('.card').forEach(card => {
+    observer.observe(card);
+  });
+</script>
+
+</body>
+</html>
