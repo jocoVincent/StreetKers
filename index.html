@@ -20,7 +20,15 @@
 
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family:
+        "SF Pro Display",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica Neue,
+        Arial,
+        sans-serif;
       background-color: var(--fond-clair);
       color: var(--gris-fonce);
       line-height: 1.6;
@@ -47,24 +55,20 @@
       display: flex;
       gap: 1em;
     }
-
     nav a {
       text-decoration: none;
       color: var(--blanc);
       font-weight: bold;
       transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: var(--bleu-clair);
     }
-
     .burger {
       display: none;
       flex-direction: column;
       cursor: pointer;
     }
-
     .burger div {
       width: 25px;
       height: 3px;
@@ -72,17 +76,14 @@
       margin: 4px;
       transition: 0.3s;
     }
-
     .nav-links {
       display: flex;
     }
-
     .nav-active {
       display: block !important;
       flex-direction: column;
       gap: 1em;
     }
-
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -92,29 +93,24 @@
       background: var(--bleu-clair);
       animation: fadeIn 1.2s ease-out;
     }
-
     .hero img {
       max-width: 200px;
       border-radius: 12px;
       margin: 1em;
     }
-
     .hero-text {
       max-width: 500px;
       margin: 1em;
       font-size: 1.2em;
       animation: slideIn 1s ease-out;
     }
-
     .section {
       padding: 4em 1em;
       text-align: center;
     }
-
     .section h2 {
       color: var(--menu-rouge);
     }
-
     .grid {
       display: flex;
       flex-wrap: wrap;
@@ -122,7 +118,6 @@
       gap: 2em;
       margin-top: 2em;
     }
-
     .card {
       border: 1px solid #ccc;
       border-radius: 12px;
@@ -133,23 +128,19 @@
       opacity: 0;
       transform: translateY(30px);
     }
-
     .card.visible {
       opacity: 1;
       transform: translateY(0);
       transition: all 0.6s ease-in-out;
     }
-
     .card:hover {
       transform: scale(1.05);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       z-index: 2;
     }
-
     .cta {
       margin-top: 2em;
     }
-
     .cta button {
       padding: 0.8em 1.5em;
       font-size: 1em;
@@ -160,22 +151,18 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
     .cta button:hover {
       background-color: var(--bleu-clair);
     }
-
     footer {
       background: var(--menu-rouge);
       color: var(--blanc);
       padding: 2em 1em;
     }
-
     footer a {
       color: var(--blanc);
       text-decoration: underline;
     }
-
     .mentions {
       font-size: 0.85em;
       margin-top: 2em;
@@ -183,17 +170,50 @@
       max-width: 900px;
       margin-inline: auto;
     }
-
+    /* SVG Gallery Styles */
+    .svg-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 2rem 0;
+    }
+    .svg-box {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 16px rgba(29,44,79,0.07);
+      padding: 2rem;
+      text-align: center;
+      max-width: 360px;
+      min-width: 220px;
+      transition: box-shadow 0.2s;
+    }
+    .svg-box:hover {
+      box-shadow: 0 8px 24px rgba(29,44,79,0.13);
+    }
+    .svg-box img,
+    .svg-box svg {
+      display: block;
+      margin: 0 auto 1rem auto;
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+    }
+    .svg-caption {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: #1d2c4f;
+      font-family: inherit;
+    }
     @keyframes fadeIn {
       0% {opacity: 0;}
       100% {opacity: 1;}
     }
-
     @keyframes slideIn {
       0% {opacity: 0; transform: translateY(30px);}
       100% {opacity: 1; transform: translateY(0);}
     }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -206,9 +226,16 @@
         padding: 1em;
         border-radius: 8px;
       }
-
       .burger {
         display: flex;
+      }
+      .svg-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+      .svg-box {
+        max-width: 95vw;
+        min-width: 0;
       }
     }
   </style>
@@ -250,6 +277,35 @@
     <div class="card"><h3>Prints sur toile</h3><p>2022 – Sérigraphie artisanale</p></div>
   </div>
 </section>
+
+<!-- SVG Gallery Section Start -->
+<section class="section" id="svg-gallery" style="background:var(--bleu-clair);">
+  <h2 style="color:var(--bleu);">Identité graphique StreetKers</h2>
+  <div class="svg-gallery">
+    <div class="svg-box">
+      <img src="qrcode_streetkers.svg" alt="QR Code StreetKers">
+      <div class="svg-caption">QR Code</div>
+    </div>
+    <div class="svg-box">
+      <img src="Logo_StreetKers_Rond_Rectangle_v2-site.svg" alt="Logo Rectangle StreetKers">
+      <div class="svg-caption">Logo Rectangle</div>
+    </div>
+    <div class="svg-box">
+      <img src="Logo_StreetKers_Rond_v2_site.svg" alt="Logo Rond StreetKers">
+      <div class="svg-caption">Logo Rond</div>
+    </div>
+    <div class="svg-box">
+      <img src="Logo_StreetKers_Rond_v2_site-2.svg" alt="Logo Rond V2 StreetKers">
+      <div class="svg-caption">Logo Rond V2</div>
+    </div>
+  </div>
+  <div style="margin-top:2rem; color:#333; font-size:.95em;">
+    <span style="font-family:SF Pro Display,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+      Made with San Francisco typeface • StreetKers
+    </span>
+  </div>
+</section>
+<!-- SVG Gallery Section End -->
 
 <section class="section" id="contact">
   <h2>Contact</h2>
